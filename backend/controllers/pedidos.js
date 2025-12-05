@@ -53,7 +53,8 @@ export const createPedido = async(req,res)=>{
     } catch (error) {
         console.error("error al guardar el pedido", error);
         res.status(500).json({
-            message:"error al ingresar el pedido"
+            message:"error al ingresar el pedido",
+            error: error.message
         });
     }
 }

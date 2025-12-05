@@ -5,7 +5,7 @@ const pedidoSchema =new mongoose.Schema({
         required: true,
         ref: 'users' 
     },
-    productos:[{productId: {type: mongoose.Schema.Types.ObjectId,required:true},
+    productos:[{productId: {type: mongoose.Schema.Types.ObjectId,required:true, ref: 'productos'},
     Nombre:{type:String,required:true},
     Precio:{type:Number,required:true},
     Imagen:{type:String,required:true},

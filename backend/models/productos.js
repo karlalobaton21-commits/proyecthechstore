@@ -4,6 +4,7 @@ const productShema =new mongoose.Schema({
     Nombre:{type:String,required:true},
     Descripcion:{type:String,required:true},
     Precio:{type:Number,required:true},
+    Cantidad:{type:Number, default: 1},
     Imagen:{type:String,required:true},
 });
 //forzamos el guardado de informacion en la coleccion de producto//
