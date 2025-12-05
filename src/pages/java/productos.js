@@ -1,7 +1,7 @@
 //funcion de cargar productos
 async function cargarProductos(){
     try {
-        const response = await fetch('http://localhost:8081/api/productos');
+        const response = await fetch('http://localhost:8081/api/productos/obtenerproducto');
         const productos = await response.json();
 
         const grid = document.getElementById('products-grid');
@@ -42,7 +42,7 @@ async function cargarProductos(){
 
                 
                 `).join('');
-                cconsole.log("productos cargados con exito");
+               console.log("productos cargados con exito");
     } catch (error){
       console.error("error al cargar los productos",error);
     }

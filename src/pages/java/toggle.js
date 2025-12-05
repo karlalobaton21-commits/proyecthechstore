@@ -13,6 +13,20 @@ document.getElementById('toggle-password').addEventListener('click',function() {
     //alteracion del icono ojito segun del estado
     eyeOpen.classList.toggle('hidden',!isHidden);
     eyeClosed.classList.toggle('hidden', isHidden);
+})
 
+document.getElementById('toggle-confirmar-password').addEventListener('click',function() {
+    const passwordInput=document.getElementById('confirmar-password');
+    const eyeOpen=document.getElementById('confirm-eye-icon-open');
+    const eyeClosed=document.getElementById('confirm-eye-icon-closed');
 
+    //verificar si la contraseña esta oculta
+    const isHidden = passwordInput.type ==='password';
+
+    //cambiar de password a texto al dar click al ojo
+    passwordInput.type=isHidden ? 'text': 'password';
+
+    //alteracion del icono ojito segun del estado
+    eyeOpen.classList.toggle('hidden',!isHidden);
+    eyeClosed.classList.toggle('hidden', isHidden);
 })

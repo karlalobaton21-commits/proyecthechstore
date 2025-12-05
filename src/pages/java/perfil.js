@@ -10,17 +10,21 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
     //vamos a traer los datos de la base de datos
     const perfil = JSON.parse(localStorage.getItem("usuario"));
-    if (!perfil || !perfil.email) return;
+    if (!perfil || !perfil.Correo) return;
     let usuario = null;
     try{
         const res = await fetch("http://localhost:8081/api/perfil/obtener",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
-            body:JSON.stringify({email:perfil.email})
+            body:JSON.stringify({Correo:perfil.Correo})
         });
-        const data = await res.json();
+
         if (!res.ok) throw new Error("No se pudo obtener el perfil");
+        
+        const data = await res.json();
+
         usuario = data.usuario;
+        localStorage.setItem("usuario", JSON.stringify(usuario));
     }catch(error) {
         console.error("error al obtene rel perfil", error);
 
@@ -35,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     <div class="relative">
             <button id="user-menu-btn"
             class="w-14 h-14 rounded-full bg-blue-400 text-white flex items-center justify-center font-bold text-xl shadow-md hover:scale-105 transition-transform">
-            <span id="user-avatar"></span>
+                <span id="user-avatar"></span>
             </button>
     
             <div id="user-dropdown"
@@ -46,7 +50,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
                     <p class="text-xs text-gray-500" id="user-email"></p>
                 </div>
 
-                <a href="../pages/perfil.html"
+                <a href="../pages/menu.html"
                     class="flex items-center px-4 py-3 text-sm text-gray-700 
                            hover:bg-blue-100 hover:text-blue-800 
                            active:bg-blue-200 transition-all duration-150 rounded-md cursor-pointer">
@@ -65,12 +69,11 @@ document.addEventListener("DOMContentLoaded", async()=>{
 
 //3. INSERTAR DATOS EN EL MENÚ
     
-    document.getElementById("user-name").textContent =
-        `${perfil.nombre} ${perfil.apellido}`;
+    document.getElementById("user-name").textContent = `${usuario.Nombre} ${usuario.Apellido}`;
 
-    document.getElementById("user-email").textContent = perfil.email;
+    document.getElementById("user-email").textContent = usuario.Correo;
 
-    const avatar = `${perfil.nombre[0]}${perfil.apellido[0]}`.toUpperCase();
+    const avatar = `${usuario.Nombre[0]}${usuario.Apellido[0]}`.toUpperCase();
     document.getElementById("user-avatar").textContent = avatar;
 
     
@@ -94,30 +97,8 @@ document.addEventListener("DOMContentLoaded", async()=>{
             setTimeout(() => {
                 drop.classList.add("hidden");
             }, 150);
-        }
+        }  
     });
-
-    document.getElementById("user-menu-btn").addEventListener("click", () => {
-        const drop = document.getElementById("user-dropdown");
-
-        if (drop.classList.contains("hidden")) {
-            drop.classList.remove("hidden");
-
-            setTimeout(() => {
-                drop.classList.remove("opacity-0", "scale-95");
-                drop.classList.add("opacity-100", "scale-100");
-            }, 20);
-
-        } else {
-            drop.classList.remove("opacity-100", "scale-100");
-            drop.classList.add("opacity-0", "scale-95");
-
-            setTimeout(() => {
-                drop.classList.add("hidden");
-            }, 150);
-        }
-    });
-
 });
 
 
@@ -141,8 +122,5 @@ document.addEventListener("click", (e) => {
             }, 500);
         }, 1800);
     }
-
-
-
-    
 });
+

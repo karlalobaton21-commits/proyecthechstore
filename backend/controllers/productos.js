@@ -12,11 +12,11 @@ export const createProduct = async(req,res)=>{
             Imagen
         });
         await newProduct.save();
-        res.status(201).json({message:"guardado con exito"});
+        return res.status(201).json({message:"guardado con exito"});
 
     } catch (error) {
         console.error("error al guardar el producto", error);
-        res.status(400).json({
+        res.status(500).json({
             message:"error al ingresar el producto"
         });
     }

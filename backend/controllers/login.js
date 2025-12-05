@@ -25,11 +25,10 @@ export const LoginUsuario= async(req, res)=>{
         res.status(200).json({
             message:"inicio de sesion corecto",
             usuario:{
-                userId:usuario.userId,
-                nombre:usuario.Nombre,
-                apellido:usuario.Apellido,
-                email:usuario.Correo,
-                numero:usuario.Numero
+                Nombre:usuario.Nombre,
+                Apellido:usuario.Apellido,
+                Correo:usuario.Correo,
+                Numero:usuario.Numero
             }
         });
 

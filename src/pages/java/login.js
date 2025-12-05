@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function (){
 
         errorDiv.classList.add('hidden');
 
-        //recoger los datos del formulario
         const datos={
             Correo:document.getElementById('email').value.trim(),
             Password:document.getElementById('password').value
@@ -44,39 +43,39 @@ document.addEventListener('DOMContentLoaded', function (){
 
            //recibir respuestas del servidor
            const resultado=await response.json();
-                if (response.ok){
-                    console.log('201-Inicio de sesion exitoso');
+            if (response.ok){
+                console.log('201-Inicio de sesion exitoso');
 
-                    //guardar informacion
-                    localStorage.setItem("sesionActiva", "true");
-                    localStorage.setItem("usuario",JSON.stringify({
-                        userId:resultado.usuario.userId,
-                        Nombre:resultado.usuario.Nombre,
-                        Apellido:resultado.usuario.Apellido,
-                        Correo:resultado.usuario.Correo,
-                        Numero:resultado.usuario.Numero
-                    }));
+                //guardar informacion
+                localStorage.setItem("sesionActiva", "true");
+                localStorage.setItem("usuario",JSON.stringify({
+                    _id:resultado.usuario._id,
+                    Nombre:resultado.usuario.Nombre,
+                    Apellido:resultado.usuario.Apellido,
+                    Correo:resultado.usuario.Correo,
+                    Numero:resultado.usuario.Numero
+                }));
 
-                    //mensaje de exito
-                    errorDiv.className='bg-green-50 border-green-200 text-green-800 px-4 py-3 rounded-lg';
-                    errorMsg.textContent='Inicio de sesion, Redirigiendo....'
-                    errorDiv.classList.remove('hidden');
+                //mensaje de exito
+                errorDiv.className='bg-green-50 border-green-200 text-green-800 px-4 py-3 rounded-lg';
+                errorMsg.textContent='Inicio de sesion, Redirigiendo....'
+                errorDiv.classList.remove('hidden');
 
-                    //rederigir a productos
-                    setTimeout(()=> window.location.href='productos.html', 3000);
-                    
-                    //credenciales incorrectas
+                //rederigir a productos
+                setTimeout(()=> window.location.href='productos.html', 3000);
+                
+                //credenciales incorrectas
 
-                } else {
-                    errorMsg.textContent=resultado.message || 'credenciales incorrectas';
-                    errorDiv.classList.remove('hidden');
-                    btn.disabled=false;
-                    btn.innerHTML='iniciar sesion';
+            } else {
+                errorMsg.textContent=resultado.message || 'credenciales incorrectas';
+                errorDiv.classList.remove('hidden');
+                btn.disabled=false;
+                btn.innerHTML='iniciar sesion';
 
-                }
+            }
         //si no hay conexion al servidor
         } catch(error) {
-        console.error('Error 404-Error de conexion con el servidor');
+        console.error('Error 404-Error de conexion con el servidor', error);
         errorMsg.textContent='Error conexion de servidor';
         errorDiv.classList.remove('hidden');
         btn.disabled=false

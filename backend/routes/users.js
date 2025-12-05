@@ -3,5 +3,6 @@ import {registrarUsers} from "../controllers/usercontroller.js";
 const router=express.Router();
 
 //ruta para registrar usuarios
-router.post("/", registrarUsers);
+router.post("/register", registrarUsers);
+
 export default router; 
