@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const API_URL="http://localhost:8081/api/Recuperar/cambiar-Password";
+    const API_URL="https://proyecthechstore.onrender.com/api/Recuperar/cambiar-Password";
     const perfil = JSON.parse(localStorage.getItem('correo'));
     document.getElementById('correo-usuario').textContent=`${perfil.Correo}`
 

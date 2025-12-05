@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     let usuarioData = null;
     try {
         // Obtenemos los datos frescos del servidor usando el Correo almacenado
-        const res = await fetch("http://localhost:8081/api/perfil/obtener", {
+        const res = await fetch("https://proyecthechstore.onrender.com/api/perfil/obtener", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ Correo: menu.Correo })

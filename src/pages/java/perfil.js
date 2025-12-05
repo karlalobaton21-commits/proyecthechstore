@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async()=>{
     if (!perfil || !perfil.Correo) return;
     let usuario = null;
     try{
-        const res = await fetch("http://localhost:8081/api/perfil/obtener",{
+        const res = await fetch("https://proyecthechstore.onrender.com/api/perfil/obtener",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify({Correo:perfil.Correo})

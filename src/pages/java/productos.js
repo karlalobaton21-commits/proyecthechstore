@@ -1,7 +1,7 @@
 //funcion de cargar productos
 async function cargarProductos(){
     try {
-        const response = await fetch('http://localhost:8081/api/productos/obtenerproducto');
+        const response = await fetch('https://proyecthechstore.onrender.com/api/productos/obtenerproducto');
         const productos = await response.json();
 
         const grid = document.getElementById('products-grid');
