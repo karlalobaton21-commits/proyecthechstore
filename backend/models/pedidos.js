@@ -7,10 +7,12 @@ const pedidoSchema =new mongoose.Schema({
     },
     productos:[{productId: {type: mongoose.Schema.Types.ObjectId,required:true, ref: 'productos'},
     Nombre:{type:String,required:true},
+    Descripcion:{type:String,required:true},
     Precio:{type:Number,required:true},
     Imagen:{type:String,required:true},
     Cantidad:{type:Number,required:true, default: 1},
-    imagen: String }],
+    imagen: {type:String, required:true}
+}],
     Total:{type:Number,required:true},
     Estado:{type:String, enum: ['pendiente', 'procesando', 'entregando', 'cancelando'],default:'pendiente'},
     metodoPago:{type:String, require:true},

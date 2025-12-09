@@ -105,6 +105,7 @@
       </nav>
     </header>
     <main class="  items-center justify-center px-4 py-12 bg-linear-to-br from-blue-50 via-white to-white">
+      
         <div class=" md:grid md:grid-cols-3 w-full animate-fade-in max-w-6xl mx-auto gap-6">
             <div class="col-span-full mb-8">
                 <!--primera fila con >-->
@@ -128,7 +129,9 @@
             </div>
             
             <!--productos en el carrito-->
-            <div class="grid col-span-2 p-10 bg-white rounded-lg shadow-md shadow-gray-300 hover:-translate-y-1 transition-transform duration-300 ease-in-out">
+            <div class="grid col-span-2 p-10 bg-white rounded-lg shadow-md shadow-gray-300 hover:-translate-y-1 transition-transform duration-300 ease-in-out " id="car-content">
+
+
                <div class="flex flex-col justify-center items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="0.5" stroke="currentColor" class="size-19">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
@@ -141,15 +144,18 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                     </svg>
                <a href="./productos.html">Ver productos</a> </button>
-
                </div>
             </div>
+
+
+            <!---->
 
             <section class=" col-span-1 p-10 bg-white rounded-lg shadow-md shadow-gray-300 hover:-translate-y-1 transition-transform duration-300 ease-in-out">
                         <div class="flex gap-3 ">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-blue-600">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184" />
                             </svg>
+                    
                             <h1 class="font-bold pb-6 text-xl">Resumen del Pedido</h1>
                         </div>
 
@@ -227,14 +233,65 @@
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-green-600">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
                 </svg>
-                <p>30 dias de devolución</p>
-
+                <p>30 dias de devolución</p>          
                 </div>
+
+
         </section>
 
         </div>
 
     </main>
+        <!-- Footer mejorado coherente con carrito.html -->
+    <footer id="perfil" class="bg-gray-900 text-white py-12 ">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="col-span-4 md:col-span-1">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-linear-to-r from-blue-600 to-purple-600 text-white p-2 rounded-lg mr-3">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold">TechStore Pro</h3>
+                    </div>
+
+                    <p class="text-gray-400 mb-4">Tu tienda de tecnología de confianza con los mejores productos y precios.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Enlaces</h3>
+                    <ul class="space-y-10 md:space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition-colors duration-200">Inicio</a></li>
+                        <li><a href="productos.html" class="hover:text-white transition-colors duration-200">Productos</a></li>
+                        <li><a href="carrito.html" class="hover:text-white transition-colors duration-200">Carrito</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Atención</h3>
+                    <ul class="space-y-10 sm:space-6 md:space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Contacto</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Envíos</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Devoluciones</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-10 sm:space-6 md:space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Términos</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Privacidad</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-200">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 TechStore Pro. Todos los derechosreservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="./java/productos.js"></script>
     <script src="./java/carrito.js"></script>
     
 </body>
