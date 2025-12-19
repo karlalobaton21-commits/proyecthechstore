@@ -3,6 +3,6 @@ import {createPedido} from "../controllers/pedidos.js";
 
 const router = express.Router();
 
-router.post("/crearpedido", createPedido);
+router.post("/", createPedido);
 
 export default router;

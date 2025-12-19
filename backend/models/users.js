@@ -13,5 +13,4 @@ const usersShema =new mongoose.Schema({
 //forzamos el guardado de informacion en la coleccion de user//
 
 const users =mongoose.model("users",usersShema,"users");
-
 export default users;

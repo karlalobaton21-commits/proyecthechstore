@@ -6,14 +6,19 @@ import { LoginUsuario } from "./controllers/login.js";
 import { createProduct, obtenerProductos } from "./controllers/productos.js";
 import {registrarUsers} from "./controllers/usercontroller.js";
 import obtenerPerfil from './routes/perfil.js';
-import RecuperarPassword from './routes/recuperar.js'
-import createPedido from './routes/pedidos.js';    
+import RecuperarPassword from './routes/recuperar.js';
+import {createPedido} from './controllers/pedidos.js'
 
 const app = express();
-app.use(express.json());
 //habilitar todas las rutas//
+// ✅ Configurar CORS
+app.use(cors({
+    origin: 'http://127.0.0.1:5500', // Tu puerto de Live Server
+    credentials: true
+}));
+app.use(express.json());
+app.post("/api/pedidos", createPedido);
 
-app.use(cors());
 
 //primera ruta//
 

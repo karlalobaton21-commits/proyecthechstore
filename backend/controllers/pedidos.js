@@ -1,22 +1,18 @@
-import pedidos from "../models/pedidos.js"
+import pedidos from "../models/pedidos.js";
 
-//crear pedido
-export const createPedido = async(req,res)=>{
-    try{
-        const{userId, productos, Total, metodoPago, direccionEnvio}=req.body;
-                // 🔍 AGREGA ESTO PARA VER QUÉ LLEGA
-        console.log("Datos recibidos:");
+export const createPedido = async (req, res) => {
+    try {
+        const { userId, productos, Total, metodoPago, direccionEnvio } = req.body;
+        
+        // 🔍 Logs para debugging
+        console.log("📦 Datos recibidos del pedido:");
         console.log("userId:", userId);
         console.log("productos:", JSON.stringify(productos, null, 2));
         console.log("Total:", Total);
+        console.log("metodoPago:", metodoPago);
+        console.log("direccionEnvio:", direccionEnvio);
 
-        if (!userId) {
-            return res.status(400).json({
-                message: "ID de usuario requerido"
-            });
-        }
-
-
+        // Validaciones
         if (!userId) {
             return res.status(400).json({
                 message: "ID de usuario requerido"
@@ -25,48 +21,52 @@ export const createPedido = async(req,res)=>{
 
         if (!productos || productos.length === 0) {
             return res.status(400).json({
-                message: "Faltan productos en el pedido"
+                message: "El carrito está vacío"
             });
         }
 
-        if (!Total || !metodoPago || !direccionEnvio) {
+        if (!Total) {
             return res.status(400).json({
-                message: "Faltan datos obligatorios (Total, metodoPago, direccionEnvio)"
+                message: "El total es requerido"
+            });
+        }
+
+        if (!metodoPago) {
+            return res.status(400).json({
+                message: "Método de pago requerido"
+            });
+        }
+
+        if (!direccionEnvio) {
+            return res.status(400).json({
+                message: "Dirección de envío requerida"
             });
         }
         
-        const newPedido=new pedidos ({
+        // Crear el pedido
+        const newPedido = new pedidos({
             userId,
             productos,
             Total,
             metodoPago,
             direccionEnvio,
-            Estado:'pendiente'
+            Estado: 'pendiente'
         });
 
-        
         await newPedido.save();
-        res.status(201).json({message:"guardado con exito",
-            pedidos: newPedido
+        
+        console.log("✅ Pedido guardado exitosamente:", newPedido._id);
+        
+        res.status(201).json({
+            message: "Pedido creado con éxito",
+            pedido: newPedido
         });
 
     } catch (error) {
-        console.error("error al guardar el pedido", error);
+        console.error("❌ Error al guardar el pedido:", error);
         res.status(500).json({
-            message:"error al ingresar el pedido",
+            message: "Error al procesar el pedido",
             error: error.message
         });
     }
-}
-
-//obtener todos los pedidos de un usuario
-/*export const obtenerPedido = async (req, res)=>{
-    try{
-        const{userId} = req.params;
-        const pedidos = await pedidos.find({userId});
-        
-    } catch {
-        res.status(500).json({message: "error al obtener el pedido"});
-    }
-};*/
-
+};

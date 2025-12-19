@@ -14,6 +14,7 @@
   "description": "",
   "dependencies": {
     "@tailwindcss/cli": "^4.1.16",
-    "tailwindcss": "^4.1.16"
+    "@tailwindcss/postcss": "^4.1.18",
+    "tailwindcss": "^4.1.18"
   }
 }

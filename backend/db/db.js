@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
-import dotenv from "dotenv";
 
-dotenv.config();
-const uri = process.env.MONGODB_URI;
+// PEGA AQUÍ TU CADENA REAL DE MONGO ATLAS
+const uri = "mongodb+srv://adsotarde:adso2025@ecommer.6joang5.mongodb.net/TIENDA?appName=ecommer";
+
 mongoose.connect(uri)
-.then(()=> console.log("✅ conectar a la base de datos"))
-.catch(err => console.log("❌ error al conectar la base de datos", err));
+  .then(() => console.log("✅ Conectado a la base de datos TIENDA"))
+  .catch(err => console.log("❌ Error al conectar:", err));
