@@ -162,7 +162,7 @@ async function enviarPedido(event) {
         };
         
         mostrarIndicadorCarga(true);
-        const response = await fetch('http://localhost:8081/api/pedidos', {
+        const response = await fetch('https://techstore-backend.onrender.com/api/pedidos',  {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(pedido)

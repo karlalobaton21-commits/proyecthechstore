@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function (){
     console.log('✅ Página cargada correcta - sistema listo');
     
     //creamos la constante de la Api
-    const API_URL = "http://localhost:8081/api/Login"; // ✅ Cambiado a localhost
+    const API_URL = "https://techstore-backend.onrender.com/api/Login"; // ✅ Cambiado a localhost
 
     //enviar los datos del formulario
     document.getElementById('login-form').addEventListener('submit', async function (e){

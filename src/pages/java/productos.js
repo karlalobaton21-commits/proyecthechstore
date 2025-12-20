@@ -87,7 +87,7 @@ function configurarBotonesComprar() {
 
 async function cargarProductos(){
     try {
-        const response = await fetch('https://proyecthechstore.onrender.com/api/productos/obtenerproducto');
+        const API_URL = 'https://techstore-backend.onrender.com/api/productos';
         const productos = await response.json();
         
         const grid = document.getElementById('products-grid');

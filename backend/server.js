@@ -10,10 +10,12 @@ import RecuperarPassword from './routes/recuperar.js';
 import {createPedido} from './controllers/pedidos.js'
 
 const app = express();
-//habilitar todas las rutas//
-// ✅ Configurar CORS
 app.use(cors({
-    origin: 'http://127.0.0.1:5500', // Tu puerto de Live Server
+    origin: [
+        'http://localhost:5500',           // Desarrollo local
+        'http://127.0.0.1:5500',           // Desarrollo local alternativo
+        'https://tu-sitio.netlify.app'    // ⚠️ Reemplaza con tu URL de Netlify
+    ],
     credentials: true
 }));
 app.use(express.json());
