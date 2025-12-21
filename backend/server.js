@@ -10,18 +10,18 @@ import RecuperarPassword from './routes/recuperar.js';
 import {createPedido} from './controllers/pedidos.js'
 
 const app = express();
+//habilitar todas las rutas//
+//Configurar CORS
 app.use(cors({
     origin: [
-        'http://localhost:5500',           // Desarrollo local
-        'http://127.0.0.1:5500',           // Desarrollo local alternativo
-        'https://tu-sitio.netlify.app'    // ⚠️ Reemplaza con tu URL de Netlify
+        'http://localhost:5500',
+        'http://127.0.0.1:5500',
+        'https://techh-storeee.netlify.app'  // Tu URL de Netlify
     ],
     credentials: true
 }));
 app.use(express.json());
 app.post("/api/pedidos", createPedido);
-
-
 //primera ruta//
 
 app.get('/',(req,res)=>{
@@ -29,16 +29,11 @@ app.get('/',(req,res)=>{
 });
 //ApiS//
 app.use("/api/productos", obtenerProductos);
-
 app.use("/api/register", usersRoutes);
-
 app.use("/api/Login", LoginUsuario);
-
 app.use("/api/perfil", obtenerPerfil);
 app.use("/api/crearproducto", createProduct);
-
 app.use('/api/Recuperar', RecuperarPassword)
 
-app.use("/api/pedidos", createPedido);
-
-app.listen(8081, ()=> console.log('servidor corriendo en http://localhost:8081'));
+const PORT = process.env.PORT || 8081;
+app.listen(PORT, ()=> console.log(`servidor corriendo en puerto ${PORT}`));
