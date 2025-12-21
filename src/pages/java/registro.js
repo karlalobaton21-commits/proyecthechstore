@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function (){ // esta línea prepar
 
 
     // esta es la ruta a la que se va a hacer la petición al servidor
-    const API_URL = "https://techstore-backend.onrender.com/api/register";
+    const API_URL = "https://proyecthechstore.onrender.com/api/register";
     
 
     // accedemos a nuestro formulario (<form>) del html por medio de su id y vamos a realizar lo que está entre llaves <{}>
