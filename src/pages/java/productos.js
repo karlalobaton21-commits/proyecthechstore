@@ -79,15 +79,13 @@ function configurarBotonesComprar() {
 
 
 
-
-
-
 // LÓGICA DE LA PÁGINA DE PRODUCTOS (Fetch y Render)
 // ==========================================================
 
 async function cargarProductos(){
     try {
-        const API_URL = 'https://proyecthechstore.onrender.com/api/productos';        
+        const API_URL = 'https://proyecthechstore.onrender.com/api/productos';
+        const response = await fetch(API_URL);        
         const productos = await response.json();      
         const grid = document.getElementById('products-grid');
 
