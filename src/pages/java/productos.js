@@ -82,25 +82,15 @@ function configurarBotonesComprar() {
 // LÓGICA DE LA PÁGINA DE PRODUCTOS (Fetch y Render)
 // ==========================================================
 
-async function cargarProductos() {
+async function cargarProductos(){
     try {
-        // Asegúrate de que esta URL sea la de tu backend en Render
-        const API_URL = 'https://proyectechstore.onrender.com/api/productos';
-        
-        const res = await fetch(API_URL);
-
-        // Si la respuesta no es correcta (ej. error 404 o 500)
-        if (!res.ok) {
-            throw new Error(`Error en la red: ${res.status}`);
-        }
-
-        const productos = await res.json();
+        const API_URL = 'https://proyecthechstore.onrender.com/api/productos';
+        const response = await fetch(API_URL);        
+        const productos = await response.json();      
         const grid = document.getElementById('products-grid');
 
-        if (!grid) return; // Seguridad por si no existe el contenedor
-
-        // Estructura para convertir en HTML
-        grid.innerHTML = productos.map(producto => `
+        //estructura para convertir en html
+        grid.innerHTML = productos.map(producto=> `
             <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 product-card" data-category="laptops" data-price="${producto.Precio}" data-product-id="${producto.productId}">
 
                 <div class="bg-linear-to-br fron-gray-100 to-gray-200 h-48 flex items-center justify-center overflow-hidden">
@@ -133,10 +123,6 @@ async function cargarProductos() {
         console.log("productos cargados con exito");
     } catch (error){
         console.error("error al cargar los productos",error);
-        const grid = document.getElementById('products-grid');
-        if (grid) {
-            grid.innerHTML = `<p class="text-center text-red-500">No se pudieron cargar los productos. Intenta más tarde.</p>`;
-        }
     }
 }
 
