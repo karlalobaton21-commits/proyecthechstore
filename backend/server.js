@@ -10,8 +10,7 @@ import RecuperarPassword from './routes/recuperar.js';
 import {createPedido} from './controllers/pedidos.js'
 
 const app = express();
-//habilitar todas las rutas//
-//Configurar CORS
+
 app.use(cors({
     origin: [
         'http://localhost:5500',
@@ -20,6 +19,7 @@ app.use(cors({
     ],
     credentials: true
 }));
+
 app.use(express.json());
 app.post("/api/pedidos", createPedido);
 //primera ruta//
