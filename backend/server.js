@@ -8,9 +8,7 @@ import {registrarUsers} from "./controllers/usercontroller.js";
 import obtenerPerfil from './routes/perfil.js';
 import RecuperarPassword from './routes/recuperar.js';
 import {createPedido} from './controllers/pedidos.js'
-
 const app = express();
-
 app.use(cors({
     origin: [
         'http://localhost:5500',
@@ -19,21 +17,17 @@ app.use(cors({
     ],
     credentials: true
 }));
-
 app.use(express.json());
 app.post("/api/pedidos", createPedido);
 //primera ruta//
-
 app.get('/',(req,res)=>{
-    res.send('bienvenido a el curso de node express');
+    res.send("bienvenido a el curso de node express");
 });
-//ApiS//
 app.use("/api/productos", obtenerProductos);
-app.use("/api/register", usersRoutes);
+app.use("/api", usersRoutes);
 app.use("/api/Login", LoginUsuario);
 app.use("/api/perfil", obtenerPerfil);
 app.use("/api/crearproducto", createProduct);
-app.use('/api/Recuperar', RecuperarPassword)
-
+app.use('/api/Recuperar', RecuperarPassword);
 const PORT = process.env.PORT || 8081;
 app.listen(PORT, ()=> console.log(`servidor corriendo en puerto ${PORT}`));
